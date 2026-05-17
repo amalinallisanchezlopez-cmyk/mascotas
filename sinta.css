@@ -1,0 +1,149 @@
+/* --- Configuración de la Sección --- */
+.media-section {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #cfcdcd; /* Gris claro */
+    padding: 40px;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    border-radius: 15px;
+}
+
+/* Columna Izquierda (30%) */
+.column-video {
+    flex: 0 0 30%;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Ratio 16:9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    background: var(--gris-oscuro);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.caption {
+    margin-top: 10px;
+    color: var(--gris-medio);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* Columna Derecha (70%) */
+.column-gallery {
+    flex: 0 0 calc(70% - 20px);
+    overflow-x: auto; /* Aquí aparece la barra desplazadora */
+    padding: 10px 0;
+    scrollbar-width: thin;
+    scrollbar-color: var(--gris-medio) var(--hueso);
+}
+
+/* Personalización de la barra de desplazamiento (Webkit) */
+.column-gallery::-webkit-scrollbar {
+    height: 10px;
+}
+.column-gallery::-webkit-scrollbar-track {
+    background: var(--hueso);
+    border-radius: 10px;
+}
+.column-gallery::-webkit-scrollbar-thumb {
+    background: var(--gris-medio);
+    border-radius: 10px;
+}
+
+.gallery-wrapper {
+    display: flex;
+    gap: 15px;
+    width: max-content; /* Obliga a los items a estar en fila */
+}
+
+.gallery-item img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 3px solid var(--hueso);
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
+}
+
+/* --- Lógica del Cuadro Modal (CSS Puro) --- */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none; /* Oculto por defecto */
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+/* El truco: Se activa cuando el ID está en la URL (target) */
+.modal:target {
+    display: flex;
+}
+
+.modal-content {
+    background-color: var(--hueso);
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    text-align: center;
+    animation: zoomIn 0.3s ease;
+}
+
+.modal-content img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.modal-content h3 {
+    color: var(--gris-oscuro);
+    margin-bottom: 10px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2rem;
+    text-decoration: none;
+    color: var(--gris-oscuro);
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Ajustes Responsive */
+@media (max-width: 768px) {
+    .column-video, .column-gallery {
+        flex: 0 0 100%;
+    }
+}

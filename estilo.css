@@ -1,0 +1,187 @@
+/* Variables de color */
+:root {
+    --gris-oscuro: #4d554a;
+    --gris-medio: #c5c3b3;
+    --hueso: #f5f5dc;
+    --hueso-oscuro: #e2e2c0;
+    --blanco-trans: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f0f0f0;
+}
+
+/* --- Animación de Inicio --- */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.navbar {
+    background-color: var(--gris-oscuro);
+    color: var(--hueso);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    animation: fadeInDown 0.8s ease-out; /* Aplicación de la animación */
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--hueso);
+}
+.logo span { color: #a7aa9e; }
+.logo .paw { color: var(--hueso-oscuro); }
+
+/* Enlaces principales */
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    color: var(--hueso);
+    text-decoration: none;
+    padding: 0.8rem 1.2rem;
+    display: block;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    background-color: var(--gris-medio);
+    color: #fff;
+}
+
+/* --- Submenús (Dropdowns) --- */
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--hueso);
+    min-width: 160px;
+    display: none; /* Escondido por defecto */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.submenu li a {
+    color: var(--gris-oscuro);
+    border-bottom: 1px solid #ddd;
+}
+
+.submenu li a:hover {
+    background-color: var(--hueso-oscuro);
+    color: var(--gris-oscuro);
+}
+
+/* Mostrar submenú al hacer hover */
+.dropdown:hover .submenu {
+    display: block;
+}
+
+/* Botón de contacto especial */
+.btn-contacto {
+    background-color: var(--hueso);
+    color: var(--gris-oscuro) !important;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+/* --- Responsive Menu (Mobile) --- */
+.menu-checkbox {
+    display: none;
+}
+
+.menu-btn {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-btn span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--hueso);
+    transition: 0.3s;
+}
+
+@media (max-width: 992px) {
+    .menu-btn {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: -100%; /* Escondido a la izquierda */
+        flex-direction: column;
+        background-color: var(--gris-oscuro);
+        width: 100%;
+        height: calc(100vh - 60px);
+        transition: 0.4s;
+        padding-top: 2rem;
+    }
+
+    .nav-links li { width: 100%; text-align: center; }
+
+    /* Mostrar menú cuando el checkbox está marcado */
+    .menu-checkbox:checked ~ .nav-links {
+        left: 0;
+    }
+
+    .submenu {
+        position: static;
+        width: 100%;
+        background-color: var(--gris-medio);
+    }
+    
+    .submenu li a {
+        color: var(--hueso);
+        border-bottom: 1px solid var(--gris-oscuro);
+    }
+
+    /* En móvil, los submenús se muestran siempre o al tocar el padre */
+    .dropdown:active .submenu, .dropdown:focus .submenu {
+        display: block;
+    }
+}
+
+.hero {
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('imagenes/e71813450af4de2d30513cd4483cbf11.jpg');
+    background-size: cover;
+    color: var(--hueso);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}

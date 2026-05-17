@@ -1,0 +1,84 @@
+/* --- Sección de Consulta (CTA) --- */
+.cta-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    background-color: #f0f0f0; /* Fondo gris claro de la web */
+}
+
+.cta-card {
+    background-color: var(--gris-oscuro);
+    border: 2px solid var(--hueso-oscuro);
+    border-radius: 20px;
+    padding: 40px 30px;
+    max-width: 2000px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    /* Sutil animación de flotado al cargar o interactuar */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.cta-title {
+    color: var(--hueso);
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.cta-subtitle {
+    color: #b3b3b3; /* Gris claro para el subtexto */
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--hueso);
+    color: var(--gris-oscuro);
+    text-decoration: none;
+    padding: 12px 35px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.cta-button:hover {
+    background-color: var(--gris-medio);
+    color: var(--hueso);
+    border-color: var(--hueso);
+    cursor: pointer;
+}
+
+/* Ajustes para Pantallas Pequeñas */
+@media (max-width: 480px) {
+    .cta-card {
+        padding: 30px 20px;
+    }
+    
+    .cta-title {
+        font-size: 1.6rem;
+    }
+    
+    .cta-subtitle {
+        font-size: 0.95rem;
+    }
+    
+    .cta-button {
+        width: 100%;
+        padding: 12px 20px;
+    }
+}

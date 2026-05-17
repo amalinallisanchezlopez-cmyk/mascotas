@@ -1,0 +1,132 @@
+/* --- Sección de Reseñas de Servicios --- */
+.services-section {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.services-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.services-header h2 {
+    color: var(--gris-oscuro);
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.services-header p {
+    color: var(--gris-medio);
+    font-size: 1.1rem;
+}
+
+/* Contenedor de las tarjetas */
+.services-container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Cuadro individual (Tarjeta de Servicio) */
+.service-card {
+    background-color: var(--hueso); /* Fondo color hueso */
+    border: 1px solid var(--hueso-oscuro);
+    border-radius: 15px;
+    overflow: hidden;
+    flex: 1 1 calc(33.333% - 20px); /* 3 columnas en pantallas grandes */
+    min-width: 300px;
+    max-width: 380px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+/* Imágenes de los servicios */
+.service-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Contenido interno de la tarjeta */
+.service-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.service-badge {
+    background-color: var(--gris-oscuro);
+    color: var(--hueso);
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 20px;
+    align-self: flex-start;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.service-content h3 {
+    color: var(--gris-oscuro);
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.service-desc {
+    color: var(--gris-medio);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Empuja la reseña hacia abajo para que se alineen */
+}
+
+/* Cuadro de la reseña dentro del servicio */
+.review-box {
+    background-color: rgba(255, 255, 255, 0.6); /* Fondo blanco sutil */
+    border-left: 3px solid var(--gris-medio);
+    padding: 12px;
+    border-radius: 0 8px 8px 0;
+}
+
+.review-text {
+    font-style: italic;
+    color: #444;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    line-height: 1.4;
+}
+
+.review-author {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--gris-oscuro);
+    text-align: right;
+}
+
+/* Ajustes Responsivos */
+@media (max-width: 992px) {
+    .service-card {
+        flex: 1 1 calc(50% - 20px); /* 2 columnas en tablets */
+        max-width: 450px;
+    }
+}
+
+@media (max-width: 768px) {
+    .service-card {
+        flex: 1 1 100%; /* 1 columna en móviles */
+        max-width: 100%;
+    }
+}
